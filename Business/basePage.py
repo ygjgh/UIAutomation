@@ -33,7 +33,7 @@ class BasePage():
         except Exception as e:
             Logger.error(e.args, loc[1])
 
-    def send_keys(self, loc, value, isClear=True):
+    def sendKeys(self, loc, value, isClear=True):
         """
         输入文字，默认先清空，再输入。
         :param loc:
@@ -53,7 +53,7 @@ class BasePage():
         """
         self._find_element(loc).click()
 
-    def double_click(self, loc):
+    def doubleClick(self, loc):
         """
         左双击
         :param loc:
@@ -65,7 +65,7 @@ class BasePage():
     def getHandle(self, handle_name):
         self.handles[handle_name] = self.driver.current_window_handle
 
-    def save_handle(self, handle_name, handles):
+    def saveHandle(self, handle_name, handles):
         """
         保存窗口句柄
         :param handle_name:
@@ -80,5 +80,5 @@ class BasePage():
                 except Exception as e:
                     Logger.error(e.args, handle_name)
 
-    def switch_window(self, handle_name):
+    def switchWindow(self, handle_name):
         self.driver.switch_to.window(self.handles['handle_name'])
