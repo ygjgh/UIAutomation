@@ -1,6 +1,6 @@
 #coding=utf-8
 """
-FileName: basePage.py
+FileName: UIBasicOperation.py
 Function: This is the basies off all pages. All pages inherit from this class.
 Time: 2021-07-29
 Author: YangGuangjian
@@ -10,19 +10,19 @@ from Common.log import Logger
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains
 
-class BasePage():
-    def __init__(self, driver, base_url):
+class UIBasicOpreation():
+    def __init__(self, driver):
         self.driver = driver
-        self.base_url = base_url
         self.handles = {}
 
-    def open(self):
-        """
-        打开浏览器，并最大化。
-        :return:
-        """
-        self.driver.get(self.base_url)
-        self.driver.maximize_window()
+    def open_url(self, param):
+        try:
+            self.driver.get(param)
+        except Exception as e:
+            Logger.error(e.args)
+
+    def quit(self):
+        self.driver.quit()
 
     def _find_element(self, loc):
         # 查找元素
@@ -32,6 +32,9 @@ class BasePage():
             return self.driver.find_element(loc[0], loc[1])
         except Exception as e:
             Logger.error(e.args, loc[1])
+
+    def getText(self,loc):
+        return self._find_element(loc).text
 
     def sendKeys(self, loc, value, isClear=True):
         """
@@ -62,7 +65,21 @@ class BasePage():
         double = self._find_element(loc)
         ActionChains(self.driver).double_click(double).perform()
 
+    def hover(self, loc):
+        """
+        鼠标悬停
+        :param loc:
+        :return:
+        """
+        el = self._find_element(loc)
+        ActionChains(self.driver).move_to_element(el).perform()
+
     def getHandle(self, handle_name):
+        """
+        获取当前页面句柄，并存在字典中，key为入参handle_name
+        :param handle_name:
+        :return:
+        """
         self.handles[handle_name] = self.driver.current_window_handle
 
     def saveHandle(self, handle_name, handles):
@@ -81,4 +98,11 @@ class BasePage():
                     Logger.error(e.args, handle_name)
 
     def switchWindow(self, handle_name):
-        self.driver.switch_to.window(self.handles['handle_name'])
+        """
+        切换窗口，入参为句柄名称
+        :param handle_name:
+        :return:
+        """
+        self.driver.switch_to.window(self.handles[handle_name])
+
+

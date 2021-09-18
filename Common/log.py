@@ -12,7 +12,7 @@ from util.readYAML import readYAML
 from util.getPath import filePath
 
 
-log_config = readYAML('config', 'log_config.yaml')
+log_config = readYAML('config', 'log_config.yml')
 log_config['handlers']['info_file_handler']['filename'] = filePath('Logs', time.strftime("%Y%m%d")+'.log')
 log_config['handlers']['error_file_handler']['filename'] = filePath('Logs', 'error_'+time.strftime("%Y%m%d")+'.log')
 

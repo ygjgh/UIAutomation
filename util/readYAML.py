@@ -8,6 +8,7 @@ Author: YangGuangjian
 
 import yaml
 from util.getPath import filePath
+from Common import log
 
 def readYAML(path, file_name):
     """
@@ -18,6 +19,8 @@ def readYAML(path, file_name):
     """
     file_path = filePath(path, file_name)
     print('----------------------')
-    with open(file_path, 'r', encoding='utf-8') as f:
-        return yaml.load(f, Loader=yaml.FullLoader)
-
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            return yaml.load(f, Loader=yaml.FullLoader)
+    except Exception as e:
+        log.Logger.error(e.args)

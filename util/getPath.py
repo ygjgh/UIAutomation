@@ -16,5 +16,5 @@ def basePath():
     return BASE_PATH
 
 if __name__ == '__main__':
-    file = filePath('config', 'log_config.yaml')
+    file = filePath('config', 'log_config.yml')
     print(file)

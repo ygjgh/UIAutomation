@@ -7,4 +7,5 @@ Author: YangGuangjian
 """
 
 class IndexPageLocator():
-    Button_login = ('id', '')
+    INPUT_WD = ('id', 'kw')
+    BUTTON_SEARCH = ('id', 'su')
