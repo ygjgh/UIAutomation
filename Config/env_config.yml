@@ -1,0 +1,6 @@
+# 测试环境的基础配置
+
+test_env: TEST
+test_data: TEST
+#browser: FireFox
+browser: Chrome

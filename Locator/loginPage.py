@@ -1,6 +1,6 @@
 #coding=utf-8
 """
-FileName: indexPage.py
+FileName: BaiduIndexLocations.py
 Function: Provides login page elements positioning.
 Time: 2021-07-30
 Author: YangGuangjian

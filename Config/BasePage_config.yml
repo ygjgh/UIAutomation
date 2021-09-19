@@ -1,0 +1,3 @@
+# BasePage页配置文件
+
+element_wait_timeout: 60

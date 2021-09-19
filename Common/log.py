@@ -8,12 +8,12 @@ Author: YangGuangjian
 
 import time
 import logging.config
-from util.readYAML import readYAML
+from util.readYAML import readYAMLFile
 from util.getPath import filePath
 
 
-log_config = readYAML('config', 'log_config.yml')
-log_config['handlers']['info_file_handler']['filename'] = filePath('Logs', time.strftime("%Y%m%d")+'.log')
+log_config = readYAMLFile('config', 'log_config.yml')
+log_config['handlers']['info_file_handler']['filename'] = filePath('Logs', 'info_'+time.strftime("%Y%m%d")+'.log')
 log_config['handlers']['error_file_handler']['filename'] = filePath('Logs', 'error_'+time.strftime("%Y%m%d")+'.log')
 
 
