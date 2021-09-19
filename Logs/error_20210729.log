@@ -1,0 +1,8 @@
+2021-07-29 15:58:23,496 [error:27] [ERROR]- Logger_error.error()
+2021-07-29 15:58:36,398 [error:27] [ERROR]- Logger_error.error()
+2021-07-29 15:58:45,152 [error:27] [ERROR]- Logger_error.error()
+2021-07-29 16:10:15,219 [root:27] [ERROR]- Logger_info.error()
+2021-07-29 16:12:27,656 [root:27] [ERROR]- Logger_info.error()
+2021-07-29 16:16:59,439 [log.py:27] [ERROR]- Logger_info.error()
+2021-07-29 16:22:08,096 [log.py:28] [ERROR]- error
+2021-07-29 16:22:30,269 [log.py:28] [ERROR]- error
